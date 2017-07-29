@@ -9,6 +9,9 @@ var path = require("path");
 var app = express();
 var PORT = 3000;
 
+
+
+
 // Sets up the Express app to handle data parsing
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,7 +32,39 @@ var tables = [
   phoneNumber: "22",
   email: "asdas",
   id: 2
-}];
+},
+{
+  name: "Joaquim",
+  phoneNumber: "22",
+  email: "asdas",
+  id: 3
+},
+{
+  name: "Bob",
+  phoneNumber: "22",
+  email: "asdas",
+  id: 4
+},
+{
+  name: "Bud",
+  phoneNumber: "22",
+  email: "asdas",
+  id: 5
+},
+{
+  name: "Coop",
+  phoneNumber: "22",
+  email: "asdas",
+  id: 6
+},
+{
+  name: "Brian",
+  phoneNumber: "22",
+  email: "asdas",
+  id: 7
+}
+
+];
 
 // Routes
 // =============================================================
@@ -48,6 +83,25 @@ app.get("/", function(req, res) {
 app.get("/api/tables", function(req, res) {
   res.json(tables);
   console.log(tables);
+});
+
+
+app.get("/api/reservations", function(req,res) {
+
+	
+		for(var i = 0; i < tables.length; i++){
+			// return res.json(tables[i]);
+			if (i < 5) {
+				console.log("Tables: ");
+				console.log(tables[i]);
+			} else {
+				console.log("Waitlist");
+				console.log(tables[i]);
+			}
+
+		}
+	
+
 });
 
 // Search for Specific Character (or all characters) - provides JSON
