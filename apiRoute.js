@@ -10,8 +10,6 @@ var app = express();
 var PORT = 3000;
 
 
-
-
 // Sets up the Express app to handle data parsing
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -75,9 +73,17 @@ app.get("/", function(req, res) {
   console.log("log in page");
 });
 
+app.get("/reserve", function(req, res) {
+  res.sendFile(path.join(__dirname, "reserve.html"));
+  console.log("reserve page");
+});
 // app.get("/add", function(req, res) {
 //   res.sendFile(path.join(__dirname, "add.html"));
 // });
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+  // console.log("log in page");
+});
 
 //Display all tables.
 app.get("/api/tables", function(req, res) {
@@ -85,23 +91,19 @@ app.get("/api/tables", function(req, res) {
   console.log(tables);
 });
 
-app.get("/tables", function(req, res) {
-  res.sendFile(path.join(__dirname, "tables.html"));
-  // console.log("log in page");
-});
 
 //Display reservations and waitlist.
-app.get("/api/reservations", function(req,res) {
-	for(var i = 0; i < tables.length; i++){
-		// return res.json(tables[i]);
-		if (i < 5) {
-			console.log("Tables: ");
-			console.log(tables[i]);
-		} else {
-			console.log("Waitlist");
-			console.log(tables[i]);
-		}
-	}
+app.get("/api/reserve", function(req,res) {
+  for(var i = 0; i < tables.length; i++){
+    // return res.json(tables[i]);
+    if (i < 5) {
+      console.log("Tables: ");
+      console.log(tables[i]);
+    } else {
+      console.log("Waitlist");
+      console.log(tables[i]);
+    }
+  }
 });
 
 // Search for Specific Character (or all characters) - provides JSON
@@ -121,17 +123,17 @@ app.get("/api/reservations", function(req,res) {
 //   return res.json(characters);
 // });
 
-// // Create New Characters - takes in JSON input
-// app.post("/api/new", function(req, res) {
-//   var newcharacter = req.body;
-//   newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+// Create New Characters - takes in JSON input
+app.post("/api/reserve", function(req, res) {
+  var newTable = req.body;
+  newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
 
-//   console.log(newcharacter);
+  console.log(newTable);
 
-//   characters.push(newcharacter);
+  tables.push(newTable);
 
-//   res.json(newcharacter);
-// });
+  res.json(newTable);
+});
 
 // Starts the server to begin listening
 // =============================================================
