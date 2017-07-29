@@ -77,6 +77,29 @@
 	</div>
 
 </body>
+
+<script src="./apiRoute.js">
+	// $("#panel-body").on("click", function () {
+	// 	$("#reserve_name")
+	// })
+
+	$.get("/api/table", function(data) {
+		console.log(data);
+		for (var i = 0; i < data.length; i++) {
+			$("#reserve_name").text(data.name);
+			$("#reserve_phone").text(data.phoneNumber);
+			$("#reserve_email").text(data.email);
+			$("#reserve_uniqueID").text(data.id);
+		}
+	})	
+
+
+
+
+
+
+</script>
+
 </html>
 
 

@@ -79,29 +79,29 @@ app.get("/", function(req, res) {
 //   res.sendFile(path.join(__dirname, "add.html"));
 // });
 
-// // Get all characters
+//Display all tables.
 app.get("/api/tables", function(req, res) {
   res.json(tables);
   console.log(tables);
 });
 
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+  // console.log("log in page");
+});
 
+//Display reservations and waitlist.
 app.get("/api/reservations", function(req,res) {
-
-	
-		for(var i = 0; i < tables.length; i++){
-			// return res.json(tables[i]);
-			if (i < 5) {
-				console.log("Tables: ");
-				console.log(tables[i]);
-			} else {
-				console.log("Waitlist");
-				console.log(tables[i]);
-			}
-
+	for(var i = 0; i < tables.length; i++){
+		// return res.json(tables[i]);
+		if (i < 5) {
+			console.log("Tables: ");
+			console.log(tables[i]);
+		} else {
+			console.log("Waitlist");
+			console.log(tables[i]);
 		}
-	
-
+	}
 });
 
 // Search for Specific Character (or all characters) - provides JSON
