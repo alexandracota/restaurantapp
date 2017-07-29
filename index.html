@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Tables Page</title>
+	<title>Home</title>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
-<body>
+
+<body class="teal lighten-5">
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo">Hipster Spot Restaurant</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="tables.html"> View Tables</a></li>
+				<li><a href="reserve.html"> Make Reservation</a> </li>
+			</ul>
+		</div>
+	</nav>
 
 	<div class="container">
 
-		<div class="jumbotron">
-			<h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hipster Restaurant</h1>
-			<hr>
-			<h2 class="text-center">We only have 5 tables- to artificially create demand! Be cool and get one!</h2>
-			<br>
-
-			<div class="text-center">
-				<a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Who is Cooler Than You</button></a>
-				<a href="/reserve"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Rezzy</button></a>
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<p>We only have 5 tables- to artificially create demand! Be cool and get one!</p>
+					</div>
+					<div class="card-action">
+						<a href="tables.html"><button type="button" class="btn btn-lg"> View Who is Cooler Than You</button></a>
+						<a href="reserve.html"><button type="button" class="btn btn-lg">Make Rezzy</button></a>
+					</div>
+				</div>
 			</div>
-
 		</div>
 
-    <footer class="footer">
-      <div class="container">
-	        <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
-      </div>
-    </footer>
-
 	</div>
+	<footer class="page-footer">
+		<div class="footer-copyright">
+			<div class="container">
+				<p><a class="link" href="/api/tables">API Table Link</a> | <a class="link" href="/api/waitlist">API Wait List</a> </p>
+			</div>
+		</div>
+	</footer>
 
+	<!-- Jquery   -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Materialize-->
+	<script src="javascript/materialize.min.js"></script>
 
 </body>
+
 </html>
